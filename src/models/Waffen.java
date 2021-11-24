@@ -9,9 +9,9 @@ public class Waffen {
 
 
     // Konstruktor
-    public Waffen(String name,int schaden){
+    public Waffen(String name){
         this.name=name;
-        this.schaden=schaden;
+
     }
 
 }

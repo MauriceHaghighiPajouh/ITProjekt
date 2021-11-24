@@ -9,7 +9,7 @@ public class Charakter {
     private String name;
     private double geld;
     private double pegel;
-    private int hitpoints;
+    private int gesamtwert;
 
 
     //Konstruktor
@@ -17,10 +17,13 @@ public class Charakter {
         this.name = name;
         this.geld = geld;
         this.pegel = pegel;
-        this.hitpoints = hitpoints;
+        this.gesamtwert = gesamtwert;
 
         //get
     }
+
+
+
 
     public String getName() {
         return name;
@@ -35,7 +38,7 @@ public class Charakter {
     }
 
     public int getHitpoints() {
-        return hitpoints;
+        return gesamtwert;
     }
     //set
 
@@ -51,14 +54,11 @@ public class Charakter {
         this.pegel = pegel;
     }
 
-    public void setHitpoints(int hitpoints) {
-        this.hitpoints = hitpoints;
+    public void setHitpoints(int gesamtwert) {
+        this.gesamtwert = gesamtwert;
     }
 
-    //schaden nehmen
-    public void schadenNehmen(int schaden) {
-        hitpoints = hitpoints - schaden;
-    }
+
 
 
 }

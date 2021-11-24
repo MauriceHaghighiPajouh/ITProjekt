@@ -3,12 +3,15 @@ package models;
 public class Ruestung {
 
     private String name;
-    private int bonushp;
+    private int preis;
 
 
-    public Ruestung(String name,int bonushp){
-        this.name=name;
-        this.bonushp=bonushp;
+    public Ruestung(String name, int preis) {
+        this.name = name;
+        this.preis = preis;
+
     }
 
-}
+
+    }
+
