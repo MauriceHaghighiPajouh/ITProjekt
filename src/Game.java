@@ -90,12 +90,9 @@ public class Game {
             case 2:
                 slowprint("NICE!" +
                           "\nDas Pärchen hatte 100$ dabei. Die gehören jetzt dir!");
-                slowprint("Möchtest du in die 5th Avenue gehen?" +
+                slowprint("\nMöchtest du in die 5th Avenue gehen?" +
                           "\n1)Ja" +
                           "\n2)Nein");
-                slowprint("in der 5th Avenue siehst du zwei Dealer." +
-                          "\nDu kannst vielleicht etwas von ihnen kaufen..?" +
-                          "\nSie haben eine Schutzweste und eine Pistole im Angebot.");
                 this.parkZuAvenue();
                 break;
             case 3:
@@ -116,6 +113,9 @@ public class Game {
 
         if (auswahl == 1) {
             slowprint("auf gehts");
+            slowprint("\nin der 5th Avenue siehst du zwei Dealer." +
+                      "\nDu kannst vielleicht etwas von ihnen kaufen..?" +
+                      "\nSie haben eine Schutzweste und eine Pistole im Angebot.");
             this.geheZurAvenue();
         } else {
             this.geheZurBank();
