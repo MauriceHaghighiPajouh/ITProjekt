@@ -13,7 +13,7 @@ public class Charakter {
 
 
     //Konstruktor
-    public Charakter(String name, double geld, double pegel, int hitpoints) {
+    public Charakter(String name, double geld, double pegel, int gesamtwert) {
         this.name = name;
         this.geld = geld;
         this.pegel = pegel;
@@ -58,8 +58,27 @@ public class Charakter {
         this.gesamtwert = gesamtwert;
     }
 
+    public int kauf;
+    public int schutzwesteKaufen(int kauf){
+        setGeld(geld-50);
+
+
+        return kauf;
+    }
+
+    public int pistoleKaufen(int kauf){
+        setGeld(geld-100);
+        return kauf;
+    }
+
+    }
 
 
 
-}
+
+
+
+
+
+
 

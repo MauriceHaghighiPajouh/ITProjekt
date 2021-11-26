@@ -5,12 +5,12 @@ public class Waffen {
 
     //Attribute
     private String name;
-    private int schaden;
-
+    private int wert;
 
     // Konstruktor
-    public Waffen(String name){
+    public Waffen(String name,int wert){
         this.name=name;
+        this.wert=wert;
 
     }
 

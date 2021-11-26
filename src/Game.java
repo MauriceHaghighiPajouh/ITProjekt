@@ -9,10 +9,11 @@ public class Game {
 
 
     //Init Charaktere
-    Charakter charakter1 = new Charakter("Jenkins", 50, 0.0, 100);
-    Charakter charakter2 = new Charakter("Obdachloser", 5, 3.5, 5);
+    Charakter charakter1 = new Charakter("Jenkins", 50, 0.0, 0);
+
     //Init models.Waffen
-    Waffen waffe1 = new Waffen("Pistole");
+    Waffen waffe1 = new Waffen("Pistole",15);
+
 
     //INIT Rüstung
 
@@ -90,6 +91,7 @@ public class Game {
             case 2:
                 slowprint("NICE!" +
                           "\nDas Pärchen hatte 100$ dabei. Die gehören jetzt dir!");
+                this.charakter1.setGeld(this.charakter1.getGeld() + 100);
                 slowprint("\nMöchtest du in die 5th Avenue gehen?" +
                           "\n1)Ja" +
                           "\n2)Nein");
@@ -136,25 +138,76 @@ public class Game {
 
         slowprint("\n1)Schutzweste kaufen (50$)" +
                   "\n2)Pistole kaufen(100$)" +
-                  "\n3)Nichts..?");
+                  "\n3)Sparpreis-paket kaufen(Pistole+Schutzweste)...(Kostet trotzdem 150$... Wir sind hier bei Dealern und nicht bei Aldi)" +
+                  "\n4)Nichts..?" +
+                  "\n(Freundlicher Tipp Kollege, die Dealer werden ganzschön sauer wenn du was kaufen willst" +
+                  "\nund nicht genug Kohle dabei hast. Aktuell hast du:");
+        System.out.println(this.charakter1.getGeld() + "$ dabei");
 
         int auswahl = this.tastatur.nextInt();
 
         switch (auswahl) {
             case 1:
-
+                charakter1.setGeld(charakter1.getGeld() - 50);
+                break;
+            case 2:
+                charakter1.setGeld(charakter1.getGeld() - 100);
+                break;
+            case 3:
+                charakter1.setGeld(charakter1.getGeld() - 150);
+            case 4:
+                slowprint("Auf zur bank!");
+                break;
+            default:
+                slowprint("komm schon, wähl was vernünftiges.. du willst doch die Dealer nicht verärgern?");
 
 
         }
+        if (charakter1.getGeld() < 0) {
+
+            slowprint("Ich hab dich gewarnt Kollege... ICH .. der ERZÄHLER.. der ERSCHAFFER DEINER GESCHICHTE" +
+                      "\nund DU..DU willst ja nicht hören. Naja wie auch immer.." +
+                      "\nEiner der Dealer hat dich abgestochen. R.I.P");
+            System.exit(0);
+        }
+        this.geheZurBank();
+    }
+
+    public void geheZurBar() throws InterruptedException {
+        slowprint("Bla bla bla du Bar");
+        slowprint("was willst du machen bla bla " +
+                  "\n1)Bier trinken" +
+                  "\n2)Den Typen verfolgen");
+        int auswahl = this.tastatur.nextInt();
+
+        switch (auswahl){
+            case 1: slowprint("Ah .. das hat super geschmeckt..hat dich aber nicht weiter gebracht.." +
+                              "\nalso nochmal von vorne..");
+            case 2:slowprint("du rennst dem Typen hinterher.. UND");
+                        if (this.charakter1.getPegel()>2){slowprint("fällst in Ohnmacht..einmal Spritti immer Spritti");
+                        }
+                        else if(this.charakter1.getPegel()==2){
+                            slowprint("Folgst ihm in den Raum in den er ging.. Es ist jedoch niemand mehr hier und SIEHE DA" +
+                                      "\ndu findest eine Maschinenpistole und ne kubanische Zigarre.Damit wird die Sache mit der Bank ein zuckerschlecken!!!");
+
+
+                        }
+        }
 
     }
+
 
     // ZUR BANK GEHEN
 
 
     public void geheZurBank() throws InterruptedException {
 
+        slowprint("Da stehst du nun..direkt vor der Bank" +
+                  "\nIch hoffe du bist bereit, weil jetzt gibt es kein Zurück mehr!");
+        int auswahl = this.tastatur.nextInt();
+
     }
+
 
     // SLOWPRINT VON STACKOVERFLOW
 
