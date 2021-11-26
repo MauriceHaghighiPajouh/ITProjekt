@@ -4,8 +4,8 @@ public class Waffen {
 
 
     //Attribute
-    private String name;
-    private int wert;
+    public String name;
+    public int wert;
 
     // Konstruktor
     public Waffen(String name,int wert){

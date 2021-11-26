@@ -2,8 +2,8 @@ package models;
 
 public class Ruestung {
 
-    private String name;
-    private int wert;
+    public String name;
+    public int wert;
 
 
     public Ruestung(String name, int wert) {

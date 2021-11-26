@@ -12,12 +12,13 @@ public class Game {
     Charakter charakter1 = new Charakter("Jenkins", 50, 0.0, 0);
 
     //Init models.Waffen
-    Waffen waffe1 = new Waffen("Pistole",15);
+    Waffen waffe1 = new Waffen("Pistole", 10);
+    Waffen waffe2 = new Waffen("Maschinenpistole", 15);
 
 
     //INIT Rüstung
 
-    Ruestung ruestung1 = new Ruestung("Kugelsichere Weste", 50);
+    Ruestung ruestung1 = new Ruestung("Kugelsichere Weste", 5);
 
     // Scanner
     Scanner tastatur = new Scanner(System.in);
@@ -61,6 +62,7 @@ public class Game {
                 break;
             case 3:
                 slowprint("Du bist nun in der Bar");
+                this.geheZurBar();
                 break;
             default:
                 slowprint("Es gibt nur 1,2 oder 3. Wähl was vernünftiges");
@@ -149,12 +151,15 @@ public class Game {
         switch (auswahl) {
             case 1:
                 charakter1.setGeld(charakter1.getGeld() - 50);
+                this.charakter1.setGesamtwert(charakter1.getGesamtwert() + ruestung1.wert);
                 break;
             case 2:
                 charakter1.setGeld(charakter1.getGeld() - 100);
+                this.charakter1.setGesamtwert(charakter1.getGesamtwert() + waffe1.wert);
                 break;
             case 3:
                 charakter1.setGeld(charakter1.getGeld() - 150);
+                this.charakter1.setGesamtwert(charakter1.getGesamtwert()+ waffe1.wert+ ruestung1.wert);
             case 4:
                 slowprint("Auf zur bank!");
                 break;
@@ -180,20 +185,32 @@ public class Game {
                   "\n2)Den Typen verfolgen");
         int auswahl = this.tastatur.nextInt();
 
-        switch (auswahl){
-            case 1: slowprint("Ah .. das hat super geschmeckt..hat dich aber nicht weiter gebracht.." +
-                              "\nalso nochmal von vorne..");
-            case 2:slowprint("du rennst dem Typen hinterher.. UND");
-                        if (this.charakter1.getPegel()>2){slowprint("fällst in Ohnmacht..einmal Spritti immer Spritti");
-                        }
-                        else if(this.charakter1.getPegel()==2){
-                            slowprint("Folgst ihm in den Raum in den er ging.. Es ist jedoch niemand mehr hier und SIEHE DA" +
-                                      "\ndu findest eine Maschinenpistole und ne kubanische Zigarre.Damit wird die Sache mit der Bank ein zuckerschlecken!!!");
+        switch (auswahl) {
+            case 1:
+                slowprint("Ah .. das hat super geschmeckt..hat dich aber nicht weiter gebracht.." +
+                          "\nalso nochmal von vorne..");
+                this.charakter1.setPegel(charakter1.getPegel() + 1);
+                this.geheZurBar();
+                break;
+            case 2:
+                slowprint("du rennst dem Typen hinterher.. UND");
+                if (this.charakter1.getPegel() > 2) {
+                    slowprint("Hast irgendwie doch kein bock zu laufen.. bleibste halt einfach hier und säufst...einmal Spritti immer Spritti");
+                } else if (this.charakter1.getPegel() == 2) {
+                    slowprint("\nFolgst ihm in den Raum in den er ging.. Es ist jedoch niemand mehr hier und SIEHE DA" +
+                              "\ndu findest eine Maschinenpistole und ne kubanische Zigarre.Damit wird die Sache mit der Bank ein zuckerschlecken!!!" +
+                              "\nSie macht sowieso gleich zu. Deswegen machst du dich auf den Weg!");
+                    this.charakter1.setGesamtwert(this.charakter1.getGesamtwert() + waffe2.wert);
+                    this.geheZurBank();
+                } else {
+                    slowprint("\nStehst plötzlich in dem Raum..wo dich 3 bewaffnete Russen anschauen." +
+                              "\ndas nächste was du siehst ist eine Faust die dir ins Gesicht fliegt..");
+                    System.exit(0);
 
+                }
+                break;
 
-                        }
         }
-
     }
 
 
@@ -202,11 +219,29 @@ public class Game {
 
     public void geheZurBank() throws InterruptedException {
 
-        slowprint("Da stehst du nun..direkt vor der Bank" +
+        slowprint("\n" +
+                  "\n" +
+                  "\nDa stehst du nun..direkt vor der Bank" +
                   "\nIch hoffe du bist bereit, weil jetzt gibt es kein Zurück mehr!");
-        int auswahl = this.tastatur.nextInt();
+        if (this.charakter1.getGesamtwert() < 10) {
+            slowprint("\nWie hast du dir das eigentlich vorgestellt..?" +
+                      "\nDu hast keine Waffe..nichts..NICHTMAL ne MASKE?!" +
+                      "\nNaja..Wenigstens hatten die Wachmänner gut was zu lachen..und im Gefängnis" +
+                      "\nist es sowieso nicht soooo schlecht.");
+        } else if (this.charakter1.getGesamtwert() > 10) {
+            slowprint("Du gehst nun in die Bank..Du hast dich noch nie so bereit gefühlt!");
+        }
+        else if (this.charakter1.getGesamtwert()==15){
+            slowprint("Du bist bewaffnet wie der Terminator..Beim Anblick deiner goldenen russischen" +
+                      "\nMaschinenpistole schrecken die Sicherheitsleute direkt zurück." +
+                      "\nDu gehst an den Schalter und holst dir endlich das was dir zusteht...." +
+                      "\n300 000$ Cash!");
+        }
 
     }
+
+
+
 
 
     // SLOWPRINT VON STACKOVERFLOW

@@ -37,7 +37,7 @@ public class Charakter {
         return pegel;
     }
 
-    public int getHitpoints() {
+    public int getGesamtwert() {
         return gesamtwert;
     }
     //set
@@ -54,7 +54,7 @@ public class Charakter {
         this.pegel = pegel;
     }
 
-    public void setHitpoints(int gesamtwert) {
+    public void setGesamtwert(int gesamtwert) {
         this.gesamtwert = gesamtwert;
     }
 
