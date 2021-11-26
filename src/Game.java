@@ -1,7 +1,6 @@
 import models.Charakter;
 import models.Ruestung;
 import models.Waffen;
-import models.Getränke;
 
 import java.util.Scanner;
 
@@ -228,11 +227,11 @@ public class Game {
                       "\nDu hast keine Waffe..nichts..NICHTMAL ne MASKE?!" +
                       "\nNaja..Wenigstens hatten die Wachmänner gut was zu lachen..und im Gefängnis" +
                       "\nist es sowieso nicht soooo schlecht.");
-        } else if (this.charakter1.getGesamtwert() > 10) {
+        } else if (this.charakter1.getGesamtwert() == 10-14) {
             slowprint("Du gehst nun in die Bank..Du hast dich noch nie so bereit gefühlt!");
         }
         else if (this.charakter1.getGesamtwert()==15){
-            slowprint("Du bist bewaffnet wie der Terminator..Beim Anblick deiner goldenen russischen" +
+            slowprint("\nDu bist bewaffnet wie der Terminator..Beim Anblick deiner goldenen russischen" +
                       "\nMaschinenpistole schrecken die Sicherheitsleute direkt zurück." +
                       "\nDu gehst an den Schalter und holst dir endlich das was dir zusteht...." +
                       "\n300 000$ Cash!");
