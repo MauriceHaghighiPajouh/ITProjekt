@@ -33,11 +33,13 @@ public class Game {
                 Du stehst nun vor deiner Tür.""");
 
         // AKT 1
-        slowprint("""
-                Was möchtest du tun?
-                1) Gehe in den Park neben deinem Apartment
-                2) Gehe die 5th Avenue entlang
-                3) Besuche die Bar auf der anderen Straßenseite""");
+        slowprint("Was möchtest du tun?\n" +
+                  "1) Gehe in den Park neben deinem Apartment\n" +
+                  "   (Der Park sieht sehr besiedelt aus...Es wäre sicherlich ein guter Start)\n" +
+                  "2) Gehe die 5th Avenue entlang\n" +
+                  "  (Auf dem Weg liegt die Bank..und es ist alles sehr hell beleuchtet)\n" +
+                  "3) Besuche die Bar auf der anderen Straßenseite\n" +
+                  "(denk einfach dran,dass du n Alkoholiker bist..)");
 
 
         //SCANNER1
@@ -60,7 +62,15 @@ public class Game {
                 this.geheZurAvenue();
                 break;
             case 3:
-                slowprint("Du bist nun in der Bar");
+                slowprint("\nDu befindest dich nun in deiner damaligen Stammkneipe..DER SALZIGE SPUCKNAPF.." +
+                          "\nGute Erinnerungen....Naja zurück zum wesentlichen." +
+                          "\nWährend du dort sitzt und der schönen Thekenfrau in die..Augen schaust.. siehst du wie sich ein Russe," +
+                          "\nden sie Ivan nennen in ein Hinterzimmer zurückzieht.Gefolgt von 2 breiteren Russen,die auch Ivan heißen." +
+                          "\nSie haben sicherlich etwas für dich was nützlich wäre,allerdings bezweifle ich sehr,dass sie dich nett" +
+                          "\nhereinbitten werden..schließlich bist du ein halber obdachloser und du riechst nach Alkohol" +
+                          "\nund mit deinem halbstumpfen Butterfly-messer machst du ihnen auch keine Angst." +
+                          "\nVielleicht solltest du lieber Ein bis zwei Bier trinken bevor du Ivan,Ivan und Ivan folgst." +
+                          "\nPass nur auf..Du weißt ja wie man sagt: Nach dem 3. Bier haben sich Sprittis nicht mehr unter Kontrolle");
                 this.geheZurBar();
                 break;
             default:
@@ -158,7 +168,7 @@ public class Game {
                 break;
             case 3:
                 charakter1.setGeld(charakter1.getGeld() - 150);
-                this.charakter1.setGesamtwert(charakter1.getGesamtwert()+ waffe1.wert+ ruestung1.wert);
+                this.charakter1.setGesamtwert(charakter1.getGesamtwert() + waffe1.wert + ruestung1.wert);
             case 4:
                 slowprint("Auf zur bank!");
                 break;
@@ -178,17 +188,18 @@ public class Game {
     }
 
     public void geheZurBar() throws InterruptedException {
-        slowprint("Bla bla bla du Bar");
-        slowprint("was willst du machen bla bla " +
+        slowprint("\nWas möchtest du tun? " +
                   "\n1)Bier trinken" +
-                  "\n2)Den Typen verfolgen");
+                  "\n2)Ivan,Ivan und Ivan verfolgen!!");
         int auswahl = this.tastatur.nextInt();
 
         switch (auswahl) {
             case 1:
-                slowprint("Ah .. das hat super geschmeckt..hat dich aber nicht weiter gebracht.." +
-                          "\nalso nochmal von vorne..");
                 this.charakter1.setPegel(charakter1.getPegel() + 1);
+                slowprint("\nDu hast bereits  " + charakter1.getPegel() + "  Bier getrunken");
+                slowprint("\n" +
+                          "\n" +
+                          "\nSo... Nun wo das Bierchen leer ist die Frage nochmal von vorne:");
                 this.geheZurBar();
                 break;
             case 2:
@@ -197,7 +208,8 @@ public class Game {
                     slowprint("Hast irgendwie doch kein bock zu laufen.. bleibste halt einfach hier und säufst...einmal Spritti immer Spritti");
                 } else if (this.charakter1.getPegel() == 2) {
                     slowprint("\nFolgst ihm in den Raum in den er ging.. Es ist jedoch niemand mehr hier und SIEHE DA" +
-                              "\ndu findest eine Maschinenpistole und ne kubanische Zigarre.Damit wird die Sache mit der Bank ein zuckerschlecken!!!" +
+                              "\ndu findest eine Maschinenpistole und ne kubanische Zigarre." +
+                              "\nDamit wird die Sache mit der Bank ein zuckerschlecken!!!" +
                               "\nSie macht sowieso gleich zu. Deswegen machst du dich auf den Weg!");
                     this.charakter1.setGesamtwert(this.charakter1.getGesamtwert() + waffe2.wert);
                     this.geheZurBank();
@@ -219,6 +231,34 @@ public class Game {
     public void geheZurBank() throws InterruptedException {
 
         slowprint("\n" +
+                  "\nDu siehst nun die Bank vor dir." +
+                  "\nBist du dir sicher,dass du bereit bist?" +
+                  "\n" +
+                  "\n" +
+                  "\nWenn du >Nein< wählst, wirst du dir einfach die Birne zulaufen lassen und morgen" +
+                  "\nohne Erinnerungen aufwachen,als wäre nie etwas gewesen." +
+                  "\nDu erhältst die Chance auf einen Neustart." +
+                  "\n" +
+                  "\n1) Ja" +
+                  "\n2) Nein");
+
+        int auswahl = this.tastatur.nextInt();
+        switch (auswahl) {
+            case 1:
+                slowprint("\nOkay. Auf gehts.");
+                break;
+            case 2:
+                this.charakter1.setGesamtwert(0);
+                this.charakter1.setPegel(0);
+                this.charakter1.setGeld(50);
+                this.start();
+                break;
+            default:
+                slowprint("Wähle bitte etwas vernünftiges...1 oder 2");
+        }
+
+
+        slowprint("\n" +
                   "\n" +
                   "\nDa stehst du nun..direkt vor der Bank" +
                   "\nIch hoffe du bist bereit, weil jetzt gibt es kein Zurück mehr!");
@@ -227,10 +267,19 @@ public class Game {
                       "\nDu hast keine Waffe..nichts..NICHTMAL ne MASKE?!" +
                       "\nNaja..Wenigstens hatten die Wachmänner gut was zu lachen..und im Gefängnis" +
                       "\nist es sowieso nicht soooo schlecht.");
-        } else if (this.charakter1.getGesamtwert() == 10-14) {
+        } else if (this.charakter1.getGesamtwert() > 9.9 && this.charakter1.getGesamtwert() < 15) {
             slowprint("Du gehst nun in die Bank..Du hast dich noch nie so bereit gefühlt!");
-        }
-        else if (this.charakter1.getGesamtwert()==15){
+            getRandomNumber();
+            if (getRandomNumber() > 0.5) {
+                slowprint("\nDu hast heute Glück! Der Wachmann hat Urlaub." +
+                          "\nGott sei Dank.. mit deiner mickrigen Bewaffnung hätte es sonst nie funktioniert." +
+                          "\nDu erbeutest : 200 000$ Cash !");
+            } else {
+                slowprint("\nNaja, vielleicht hättest du dich besser vorbereiten sollen..?!!" +
+                          "\nMit der Ausrüstung eine Bank zu überfallen..Das klappt nichtmal in Hollywood!");
+                System.exit(0);
+            }
+        } else if (this.charakter1.getGesamtwert() == 15) {
             slowprint("\nDu bist bewaffnet wie der Terminator..Beim Anblick deiner goldenen russischen" +
                       "\nMaschinenpistole schrecken die Sicherheitsleute direkt zurück." +
                       "\nDu gehst an den Schalter und holst dir endlich das was dir zusteht...." +
@@ -238,9 +287,6 @@ public class Game {
         }
 
     }
-
-
-
 
 
     // SLOWPRINT VON STACKOVERFLOW
@@ -256,7 +302,16 @@ public class Game {
         }
 
     }
-}
 
+    public static double getRandomNumber() {
+        double max = 1;
+        double min = 0;
+        double rng = (int) (Math.random() * ((max - min) + 1)) + min;
+        return rng;
+
+    }
+
+
+}
 
 
