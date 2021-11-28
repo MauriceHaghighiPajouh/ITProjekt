@@ -83,29 +83,34 @@ public class Game {
 
     public void geheZumPark() throws InterruptedException {
         // EINFÜHRUNG PARK
-        slowprint("Vor dir siehst du einen Obdachlosen und ein Pärchen.\n" +
-                  "Du könntest sowohl den Obdi als auch das Pärchen überfallen.\n" +
-                  "Natürlich könntest du auch etwas Vodka trinken.\n" +
-                  "Was möchtest du tun?\n" +
-                  "1) Den Obdachlosen überfallen\n" +
-                  "2) Das Pärchen überfallen\n" +
-                  "3)Vodka!");
+        slowprint("\nVor dir siehst du einen Obdachlosen und ein Pärchen." +
+                  "\n" +
+                  "\nTheorethisch..(und praktisch)..Könntest du beide überfallen" +
+                  "\nNatürlich könntest du auch etwas Vodka trinken(Wie immer..)" +
+                  "\nWas möchtest du tun?" +
+                  "\n" +
+                  "\n1) Den Obdachlosen überfallen" +
+                  "\n2) Das Pärchen überfallen" +
+                  "\n3)Vodka!");
         // NEUER SWITCH CASE IM PARK
         int auswahl = this.tastatur.nextInt();
 
         switch (auswahl) {
             case 1:
-                slowprint("Na super du Häufchen Elend..hast einen Obdachlosen überfallen." +
+                slowprint("\nNa super du Häufchen Elend..hast einen Obdachlosen überfallen." +
                           "\ndu wirst dich nie ändern...");
                 System.exit(1337);
                 break;
             case 2:
-                slowprint("NICE!" +
-                          "\nDas Pärchen hatte 100$ dabei. Die gehören jetzt dir!");
+                slowprint("\nGeil..Die Frau hatte ihr Portmonee dabei." +
+                          "\nDie Kinderfotos wirfst du weg..und die Payback-Karte."+
+                          "\nUnd TADA.. Es sind 100$ drin. Die gehören nun dir.");
                 this.charakter1.setGeld(this.charakter1.getGeld() + 100);
-                slowprint("\nMöchtest du in die 5th Avenue gehen?" +
-                          "\n1)Ja" +
-                          "\n2)Nein");
+                slowprint("\nJetzt wo du  "+this.charakter1.getGeld()+" $ in deiner Tasche hast,ist das Leben deutlich" +
+                          "\nangenehmer." +
+                          "\nWillst du in die 5th Avenue gehen, oder Lieber direkt zur Bank?"+
+                          "\n1)5th Avenue" +
+                          "\n2)Auf zur Bank ( Ohne jegliche Ausrüstung oder sonstiges?!) ");
                 this.parkZuAvenue();
                 break;
             case 3:
@@ -125,9 +130,16 @@ public class Game {
         int auswahl = this.tastatur.nextInt();
 
         if (auswahl == 1) {
-            slowprint("auf gehts");
-            slowprint("\nin der 5th Avenue siehst du zwei Dealer." +
-                      "\nDu kannst vielleicht etwas von ihnen kaufen..?" +
+            slowprint("\nDa dir dein Gestank und deine entstelle Visage unangenehm sind" +
+                      "\nGehst du nicht direkt über die Avenue,sondern schlängelst dich durch die Nebengassen." +
+                      "\nIn der einen Gasse siehst du zwei Dealer,du kennst sie beide." +
+                      "\nPablo und Pablo..Pablo ist dafür bekannt Drogen zu verkaufen,die werden dir bei dem Überfall nicht helfen" +
+                      "\nAber Pablo! Der hat immer Waffen und sonstiges im Angebot." +
+                      "\nDu könntest Pablo mal fragen!" +
+                      "\n..." +
+                      "\n...." +
+                      "\n....." +
+                      "\nSie sprechen kaum Englisch, aber :" +
                       "\nSie haben eine Schutzweste und eine Pistole im Angebot.");
             this.geheZurAvenue();
         } else {
@@ -148,9 +160,13 @@ public class Game {
     public void geheZurAvenue() throws InterruptedException {
 
         slowprint("\n1)Schutzweste kaufen (50$)" +
+                  "\n" +
                   "\n2)Pistole kaufen(100$)" +
+                  "\n" +
                   "\n3)Sparpreis-paket kaufen(Pistole+Schutzweste)...(Kostet trotzdem 150$... Wir sind hier bei Dealern und nicht bei Aldi)" +
+                  "\n" +
                   "\n4)Nichts..?" +
+                  "\n" +
                   "\n(Freundlicher Tipp Kollege, die Dealer werden ganzschön sauer wenn du was kaufen willst" +
                   "\nund nicht genug Kohle dabei hast. Aktuell hast du:");
         System.out.println(this.charakter1.getGeld() + "$ dabei");
@@ -260,8 +276,8 @@ public class Game {
 
         slowprint("\n" +
                   "\n" +
-                  "\nDa stehst du nun..direkt vor der Bank" +
-                  "\nIch hoffe du bist bereit, weil jetzt gibt es kein Zurück mehr!");
+                  "\nDu trinkst einen letzten Schluck Bier..und STÜRMST (wie ein Trottel)" +
+                  "\ndirekt in die Bank!");
         if (this.charakter1.getGesamtwert() < 10) {
             slowprint("\nWie hast du dir das eigentlich vorgestellt..?" +
                       "\nDu hast keine Waffe..nichts..NICHTMAL ne MASKE?!" +
