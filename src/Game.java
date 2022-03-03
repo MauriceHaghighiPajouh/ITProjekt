@@ -26,8 +26,8 @@ public class Game {
     public void start() throws InterruptedException {
         slowprint("""
                 Es ist mitten in der Nacht in New York im 21ten Jahrunderts und du wachst in deinem unterkühlten Apartment in der 5th Avenue auf.
-                 Neben deiner veranzten Matratze liegen 50 Dollar, ein Schlüssel zum Lagerplatz deines besten Freundes (zu dem du schon lange keinen Kontakt mehr hast)\s
-                und ein halb stumpfes Butterfly Messer.\s
+                 Neben deiner verranzten Matratze liegen 50 Dollar, ein Schlüssel zum Lagerplatz deines besten Freundes (zu dem du schon lange keinen Kontakt mehr hast)\s
+                und ein Brotmesser.\s
                 Du beschließt dein Leben zu ändern und der Armut zu entkommen.\s
                 Du beschließt eine Bank zu überfallen. Du ziehst dich an und  noch bevor die Uhr 2 schlägt verlässt du dein Apartment.\s
                 Du stehst nun vor deiner Tür.""");
@@ -39,7 +39,7 @@ public class Game {
                   "2) Gehe die 5th Avenue entlang\n" +
                   "  (Auf dem Weg liegt die Bank..und es ist alles sehr hell beleuchtet)\n" +
                   "3) Besuche die Bar auf der anderen Straßenseite\n" +
-                  "(denk einfach dran,dass du n Alkoholiker bist..)");
+                  "(...)");
 
 
         //SCANNER1
@@ -56,25 +56,25 @@ public class Game {
                 this.geheZumPark();
                 break;
             case 2:
-                slowprint("in der 5th Avenue siehst du zwei Dealer." +
+                slowprint("in der 5th Avenue siehst du zwei gefährlich aussehende Typen." +
                           "\nDu kannst vielleicht etwas von ihnen kaufen..?" +
                           "\nSie haben eine Schutzweste und eine Pistole im Angebot.");
                 this.geheZurAvenue();
                 break;
             case 3:
-                slowprint("\nDu befindest dich nun in deiner damaligen Stammkneipe..DER SALZIGE SPUCKNAPF.." +
+                slowprint("\nDu befindest dich nun in deiner damaligen Stammkneipe..." +
                           "\nGute Erinnerungen....Naja zurück zum wesentlichen." +
-                          "\nWährend du dort sitzt und der schönen Thekenfrau in die..Augen schaust.. siehst du wie sich ein Russe," +
-                          "\nden sie Ivan nennen in ein Hinterzimmer zurückzieht.Gefolgt von 2 breiteren Russen,die auch Ivan heißen." +
+                          "\nWährend du dort sitzt und der schönen Thekenfrau in die Augen schaust.. siehst du wie sich ein Osteuropäer" +
+                          "\nden sie Ivan nennen in ein Hinterzimmer zurückzieht.Gefolgt von 2 großen Männern,die auch Ivan heißen." +
                           "\nSie haben sicherlich etwas für dich was nützlich wäre,allerdings bezweifle ich sehr,dass sie dich nett" +
-                          "\nhereinbitten werden..schließlich bist du ein halber obdachloser und du riechst nach Alkohol" +
-                          "\nund mit deinem halbstumpfen Butterfly-messer machst du ihnen auch keine Angst." +
+                          "\nhereinbitten werden..schließlich riechst du nach Alkohol" +
+                          "\nund mit deinem Brotmesser machst du ihnen auch keine Angst." +
                           "\nVielleicht solltest du lieber Ein bis zwei Bier trinken bevor du Ivan,Ivan und Ivan folgst." +
-                          "\nPass nur auf..Du weißt ja wie man sagt: Nach dem 3. Bier haben sich Sprittis nicht mehr unter Kontrolle");
+                          "\nPass nur auf..Du weißt ja wie man sagt: Nach dem 3. Bier passiert nichts gutes mehr);
                 this.geheZurBar();
                 break;
             default:
-                slowprint("Es gibt nur 1,2 oder 3. Wähl was vernünftiges");
+                slowprint("Es gibt nur 1,2 oder 3. Wähl etwas anderes");
                 break;
         }
 
@@ -86,12 +86,12 @@ public class Game {
         slowprint("\nVor dir siehst du einen Obdachlosen und ein Pärchen." +
                   "\n" +
                   "\nTheorethisch..(und praktisch)..Könntest du beide überfallen" +
-                  "\nNatürlich könntest du auch etwas Vodka trinken(Wie immer..)" +
+                  "\nNatürlich könntest du auch etwas Bier trinken" +
                   "\nWas möchtest du tun?" +
                   "\n" +
                   "\n1) Den Obdachlosen überfallen" +
                   "\n2) Das Pärchen überfallen" +
-                  "\n3)Vodka!");
+                  "\n3)Bier!");
         // NEUER SWITCH CASE IM PARK
         int auswahl = this.tastatur.nextInt();
 
@@ -102,7 +102,7 @@ public class Game {
                 System.exit(1337);
                 break;
             case 2:
-                slowprint("\nGeil..Die Frau hatte ihr Portmonee dabei." +
+                slowprint("\nSuper..Die Frau hatte ihr Portmonee dabei." +
                           "\nDie Kinderfotos wirfst du weg..und die Payback-Karte."+
                           "\nUnd TADA.. Es sind 100$ drin. Die gehören nun dir.");
                 this.charakter1.setGeld(this.charakter1.getGeld() + 100);
@@ -114,7 +114,7 @@ public class Game {
                 this.parkZuAvenue();
                 break;
             case 3:
-                slowprint("Einmal Spritti, immer Spritti. Adios!");
+                slowprint("Adios!");
                 break;
             default:
                 slowprint("Es gibt nur 1,2 oder 3. Wähl etwas vernünftiges.");
